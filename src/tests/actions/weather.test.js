@@ -9,6 +9,14 @@ test('should set up addUserDataComplete action object', () => {
   });
 });
 
+test('should set up addApiDataComplete action object', () => {
+  const action = Actions.addApiDataComplete(data);
+  expect(action).toEqual({
+    type: 'ADD_API_DATA_COMPLETE',
+    data
+  });
+});
+
 test('should set up addUserData action object', () => {
   const action = Actions.addUserData(data);
   expect(action).toEqual({

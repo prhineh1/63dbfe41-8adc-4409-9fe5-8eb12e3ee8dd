@@ -9,7 +9,7 @@ export default class CommuteForm extends React.Component {
     tempLow: '',
     precipProbability: '',
     commuteDay: moment(),
-    commuteTime: moment().hour(9),
+    commuteTime: moment(),
     calendarFocused: false,
     error: '',
   };
@@ -104,9 +104,8 @@ export default class CommuteForm extends React.Component {
         />
         <Timepicker
           showSecond={false}
-          showMinute={false}
           defaultValue={this.state.commuteTime} // momentPropTypes.momentObj or null
-          format={'h a'} // See https://momentjs.com/docs/#/parsing/string-format/
+          format={'h:mm a'} // See https://momentjs.com/docs/#/parsing/string-format/
           onChange={this.onTimeChange} 
           use12Hours // PropTypes.bool, followed implemenation at http://react-component.github.io/time-picker/examples/12hours.html
         />

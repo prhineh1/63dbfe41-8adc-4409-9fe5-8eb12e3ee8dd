@@ -12,9 +12,17 @@ export function* watchAddUserDataSaga() {
 // WORKERS
 
 export function* addUserDataAsync({ data }) {
-  try {
-    const response = yield call(getWeather, data);
-  } catch (err) {
-    yield console.log(err);
+  const { response, error } = yield call(getWeather, data);
+  if (response) {
+    yield put({
+      type: 'ADD_USER_DATA_COMPLETE',
+      data
+    });
+    yield put({
+      type: 'ADD_API_DATA_COMPLETE',
+      data: response
+    });
+  } else {
+    yield call(console.log, error);
   }
 }
