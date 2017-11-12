@@ -2,6 +2,6 @@
 
 exports[`should render DashboardPage 1`] = `
 <div>
-  <Connect(CommuteFormContainer) />
+  <Connect(CommuteContainer) />
 </div>
 `;

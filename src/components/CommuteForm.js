@@ -7,7 +7,7 @@ export default class CommuteForm extends React.Component {
   state = {
     tempHi: '',
     tempLow: '',
-    precipProbability: '',
+    precipProbabilityCommute: '',
     commuteDay: moment(),
     commuteTime: moment(),
     calendarFocused: false,
@@ -26,9 +26,9 @@ export default class CommuteForm extends React.Component {
     }
   };
   onPrecipChange = e => {
-    const precipProbability = e.target.value;
-    if (!precipProbability || precipProbability.match(/(^[1-9][0-9]?$)|100?$|^0?$/)) { //matches any number between 0 and 100
-      this.setState(() => ({ precipProbability }))
+    const precipProbabilityCommute = e.target.value;
+    if (!precipProbabilityCommute || precipProbabilityCommute.match(/(^[1-9][0-9]?$)|100?$|^0?$/)) { //matches any number between 0 and 100
+      this.setState(() => ({ precipProbabilityCommute }))
     }
   }
   onDayChange = commuteDay => {
@@ -48,7 +48,7 @@ export default class CommuteForm extends React.Component {
   onSubmit = e => {
     e.preventDefault();
 
-    if(!this.state.tempHi || !this.state.tempLow || !this.state.precipProbability) {
+    if(!this.state.tempHi || !this.state.tempLow || !this.state.precipProbabilityCommute) {
       this.setState(() => ({ error: 'Please provide values for the first three fields.' }))
     } else if (parseInt(this.state.tempLow) > parseInt(this.state.tempHi)) {
       this.setState(() => ({ error: "The Hi temperature (second input) must be greater than the low temperature (first input)." }))
@@ -66,7 +66,7 @@ export default class CommuteForm extends React.Component {
       this.props.onSubmit({
         tempLow: parseInt(this.state.tempLow),
         tempHi: parseInt(this.state.tempHi),
-        precipProbability: parseFloat(this.state.precipProbability) / 100,
+        precipProbabilityCommute: parseFloat(this.state.precipProbabilityCommute) / 100,
         commuteDate: commuteDate.unix() // convert momentObj to Unix timestamp for use with DarkSky API
       });
     }
@@ -91,7 +91,7 @@ export default class CommuteForm extends React.Component {
         <input 
           type='text'
           placeholder='Chance of Rain'
-          value={this.state.precipProbability}
+          value={this.state.precipProbabilityCommute}
           onChange={this.onPrecipChange}
         />
         <SingleDatePicker 

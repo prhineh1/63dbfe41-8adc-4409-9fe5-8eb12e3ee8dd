@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CommuteContainer 1`] = `
+<div>
+  <CommuteForm
+    onSubmit={[Function]}
+  />
+  <CommuteChoiceModal
+    commute={false}
+    isOpen={false}
+    toggleModal={[Function]}
+    weather={
+      Object {
+        "icon": "clear-day",
+        "precipProbability": 0,
+        "summary": "clear skies",
+        "temperature": 45,
+      }
+    }
+  />
+</div>
+`;

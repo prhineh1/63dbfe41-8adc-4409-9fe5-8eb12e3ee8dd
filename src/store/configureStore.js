@@ -9,8 +9,13 @@ export default () => {
     const sagaMiddleware = createSagaMiddleware();
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     return {
-        ...createStore(weatherReducer, composeEnhancers(applyMiddleware(sagaMiddleware))),
+        ...createStore(
+            combineReducers({ 
+                weather: weatherReducer
+             }),
+            composeEnhancers(applyMiddleware(sagaMiddleware))
+        ),
         runSaga: sagaMiddleware.run
-    };  
+    };
 };
 

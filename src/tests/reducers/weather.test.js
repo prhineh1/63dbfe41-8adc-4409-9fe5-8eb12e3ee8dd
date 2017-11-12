@@ -16,16 +16,11 @@ test('should add user data to the state', () => {
 });
 
 test('should add DarkSky Api data to the state', () => {
-  const ApiData = {
-    temperature: 45,
-    precipProbability: 0.0,
-    summary: 'sunny'
-  };
   const action = {
     type: 'ADD_API_DATA_COMPLETE',
-    data: ApiData
+    data: data[1]
   };
   const state = reducer([[data[0]]], action);
-  expect(state).toEqual([[data[0]], [ApiData]]);
+  expect(state).toEqual([[data[0]], [data[1]]]);
 });
 

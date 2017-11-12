@@ -4,6 +4,8 @@ import { addUserData } from '../../actions/weather';
 import { getWeather } from '../../API/DarkSky';
 import data from '../fixtures/weatherData';
 
+// For more information on testing sagas see https://redux-saga.js.org/docs/advanced/Testing.html
+
 describe('testing addUserDataAsync saga for successfull Api call', () => {
   const response = {
     temperature: 45,

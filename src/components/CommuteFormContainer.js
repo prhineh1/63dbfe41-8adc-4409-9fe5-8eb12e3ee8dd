@@ -1,23 +1,44 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CommuteForm from './CommuteForm';
-import { addUserData } from '../actions/weather';
+import { addData } from '../actions/weather';
+import CommuteChoiceModal from './CommuteChoiceModal';
 
 export class CommuteFormContainer extends React.Component {
+  state = {
+    isOpen: false
+  }
   onSubmit = (userData) => {
-    this.props.addUserData(userData);
+    this.props.addData(userData);
+    this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
+  }
+  toggleModal = () => {
+    this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
   }
   render() {
     return (
       <div>
+        {!!this.props.weather.temperature && 
+          <CommuteChoiceModal 
+            weather={this.props.weather}
+            toggleModal={this.toggleModal}
+            isOpen={this.state.isOpen} 
+          />
+        }
         <CommuteForm onSubmit={this.onSubmit} />
       </div>
     );
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    weather: state.weather
+  };
+};
+
 const mapDispatchToProps = (dispatch) => ({
-  addUserData: (userData) => dispatch(addUserData(userData))
+  addData: (userData) => dispatch(addData(userData))
 });
 
-export default connect(null, mapDispatchToProps)(CommuteFormContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(CommuteFormContainer);

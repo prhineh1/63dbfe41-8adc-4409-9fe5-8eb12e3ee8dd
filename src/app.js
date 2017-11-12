@@ -6,6 +6,7 @@ import configureStore from './store/configureStore';
 import { rootSaga } from './sagas/root';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
+import 'font-awesome/css/font-awesome.css';
 import 'react-dates/lib/css/_datepicker.css';
 import 'rc-time-picker/assets/index.css';
 
