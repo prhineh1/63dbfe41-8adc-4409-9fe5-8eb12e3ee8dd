@@ -3,21 +3,26 @@ import { shallow } from 'enzyme';
 import { CommuteFormContainer } from '../../components/CommuteFormContainer';
 import data from '../fixtures/weatherData';
 
-let wrapper, addUserData, weather;
+let wrapper, addData, weather;
 
 beforeEach(() => {
-  addUserData = jest.fn();
-  weather = data[1];
-  wrapper = shallow(<CommuteFormContainer addUserData={addUserData} weather={weather} commute={false} />);
+  addData = jest.fn();
+  weather = { ...data[1] };
+  wrapper = shallow(<CommuteFormContainer addData={addData} weather={weather} />);
 });
 
 test('should render CommuteFormContainer', () => {
   expect(wrapper).toMatchSnapshot();
 });
 
-test('should handle addUserData', () => {
+test('should render CommuteFormContainer without modal', () => {
+  const noModal = wrapper.setProps({ weather: { temperature: '' } });
+  expect(noModal).toMatchSnapshot();
+});
+
+test('should handle addData', () => {
   wrapper.find('CommuteForm').prop('onSubmit')(data[0]);
-  expect(addUserData).toHaveBeenLastCalledWith(data[0]);
+  expect(addData).toHaveBeenLastCalledWith(data[0]);
   expect(wrapper.state('isOpen')).toBe(true);
 });
 

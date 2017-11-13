@@ -1,0 +1,47 @@
+.ReactModalPortal > div {
+  opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  transition: opacity 200ms ease-in-out;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.modal {
+  background: $lavender;
+  border-radius: $m-size;
+  padding: $l-size;
+  outline: none;
+}
+
+.modal__message {
+  margin: 0 0 $m-size 0;
+  text-align: center;
+}
+
+.modal__weather-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: $m-size;
+}
+
+.modal__forecast {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.model__forecast__text {
+  font-size: $font-size-large;
+}

@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render modal when with bike commute 1`] = `
+exports[`should render modal with bike commute 1`] = `
 <Modal
   ariaHideApp={true}
   bodyOpenClassName="ReactModal__Body--open"
+  className="modal"
   closeTimeoutMS={200}
-  contentLabel="The Weather and Your Commute"
+  contentLabel="D.C. Weather and Your Commute"
   isOpen={true}
   onRequestClose={[Function]}
   parentSelector={[Function]}
@@ -15,39 +16,69 @@ exports[`should render modal when with bike commute 1`] = `
   shouldFocusAfterRender={true}
   shouldReturnFocusAfterClose={true}
 >
-  <h4>
+  <h2
+    className="modal__message"
+  >
     You're all clear; bike it.
-  </h4>
-  <div>
+  </h2>
+  <div
+    className="modal__weather-icon"
+  >
     <ReactAnimatedWeather
       animate={true}
       color="black"
       icon="CLEAR_DAY"
-      size={64}
+      size={96}
     />
-    <span>
-      clear skies
-       at
-      45
-       with a
-      0
-      % chance of precipitation
-    </span>
   </div>
-  <button
-    onClick={[Function]}
+  <div
+    className="modal__forecast"
   >
-    Ok
-  </button>
+    <span
+      className="model__forecast__text"
+    >
+      Forecast for Washington D.C.
+    </span>
+    <span
+      className="model__forecast__text"
+    >
+      12th Nov, 2017 at 8:05 PM
+    </span>
+    <span
+      className="model__forecast__text"
+    >
+      clear skies
+    </span>
+    <span
+      className="model__forecast__text"
+    >
+      45
+       ℉
+    </span>
+    <span
+      className="model__forecast__text"
+    >
+      Chance of precipitation: 
+      0
+      %
+    </span>
+    <button
+      className="button button--modal"
+      onClick={[Function]}
+    >
+      Ok
+    </button>
+  </div>
 </Modal>
 `;
 
-exports[`should render modal when with metro commute 1`] = `
+exports[`should render modal with metro commute 1`] = `
 <Modal
   ariaHideApp={true}
   bodyOpenClassName="ReactModal__Body--open"
+  className="modal"
   closeTimeoutMS={200}
-  contentLabel="The Weather and Your Commute"
+  contentLabel="D.C. Weather and Your Commute"
   isOpen={true}
   onRequestClose={[Function]}
   parentSelector={[Function]}
@@ -57,29 +88,58 @@ exports[`should render modal when with metro commute 1`] = `
   shouldFocusAfterRender={true}
   shouldReturnFocusAfterClose={true}
 >
-  <h4>
-    You should take the metro.
-  </h4>
-  <div>
+  <h2
+    className="modal__message"
+  >
+    You're all clear; bike it.
+  </h2>
+  <div
+    className="modal__weather-icon"
+  >
     <ReactAnimatedWeather
       animate={true}
       color="black"
       icon="CLEAR_DAY"
-      size={64}
+      size={96}
     />
-    <span>
-      clear skies
-       at
-      45
-       with a
-      0
-      % chance of precipitation
-    </span>
   </div>
-  <button
-    onClick={[Function]}
+  <div
+    className="modal__forecast"
   >
-    Ok
-  </button>
+    <span
+      className="model__forecast__text"
+    >
+      Forecast for Washington D.C.
+    </span>
+    <span
+      className="model__forecast__text"
+    >
+      Invalid date
+    </span>
+    <span
+      className="model__forecast__text"
+    >
+      clear skies
+    </span>
+    <span
+      className="model__forecast__text"
+    >
+      45
+       ℉
+    </span>
+    <span
+      className="model__forecast__text"
+    >
+      Chance of precipitation: 
+      0
+      %
+    </span>
+    <button
+      className="button button--modal"
+      onClick={[Function]}
+    >
+      Ok
+    </button>
+  </div>
 </Modal>
 `;

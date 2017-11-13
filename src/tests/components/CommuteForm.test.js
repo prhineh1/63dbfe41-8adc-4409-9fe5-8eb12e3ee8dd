@@ -30,12 +30,12 @@ test('should set tempHi on input change', () => {
   expect(wrapper.state('tempHi')).toBe(value);
 });
 
-test('should set precipProbability on input change', () => {
+test('should set precipProbabilityCommute on input change', () => {
   const value = '67';
   wrapper.find('input').at(2).simulate('change', {
     target: { value }
   });
-  expect(wrapper.state('precipProbability')).toBe(value);
+  expect(wrapper.state('precipProbabilityCommute')).toBe(value);
 });
 
 test('should set new date on date change', () => {
@@ -80,7 +80,7 @@ test('should render error for invalid form submission (tempLow > tempHi)', () =>
   const state = {
     tempHi: '45',
     tempLow: '89',
-    precipProbability: '25'
+    precipProbabilityCommute: '25'
   };
   wrapper.setState(state);
   wrapper.find('form').simulate('submit', {
@@ -94,7 +94,7 @@ test('should call onSubmit prop for valid form submission', () => {
   const state = {
     tempHi: '89',
     tempLow: '43',
-    precipProbability: '25',
+    precipProbabilityCommute: '25',
     commuteDay: moment(),
     commuteTime: moment().hour(9),
     calendarFocused: false,
@@ -108,7 +108,7 @@ test('should call onSubmit prop for valid form submission', () => {
   expect(onSubmit).toHaveBeenLastCalledWith({
     tempHi: 89,
     tempLow: 43,
-    precipProbability: 0.25,
+    precipProbabilityCommute: 0.25,
     commuteDate: moment().hour(9).unix()
   });
 });

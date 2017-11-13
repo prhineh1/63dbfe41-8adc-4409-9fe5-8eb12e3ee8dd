@@ -3,21 +3,21 @@ import { shallow, setProps } from 'enzyme';
 import CommuteChoiceModal from '../../components/CommuteChoiceModal';
 import data from '../fixtures/weatherData';
 
-let wrapper, toggleModal;
+let wrapper, toggleModal, weather;
 
 beforeEach(() => {
   toggleModal = jest.fn();
-  wrapper = shallow(<CommuteChoiceModal isOpen toggleModal={toggleModal} weather={data[1]} />);
+  weather = { ...data[1], ...data[0] };
+  wrapper = shallow(<CommuteChoiceModal isOpen toggleModal={toggleModal} weather={weather} />);
 });
 
-test('should render modal when with bike commute', () => {
-  const bike = wrapper.setProps({ commute: false });
-  expect(bike).toMatchSnapshot();
+test('should render modal with metro commute', () => {
+  const metro = wrapper.setProps({ weather: { mode: 'metro', ...data[1] } });
+  expect(metro).toMatchSnapshot();
 });
 
-test('should render modal when with metro commute', () => {
-  const bike = wrapper.setProps({ commute: true });
-  expect(bike).toMatchSnapshot();
+test('should render modal with bike commute', () => {
+  expect(wrapper).toMatchSnapshot();
 });
 
 test('should handle toggleModal', () => {

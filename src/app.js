@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { rootSaga } from './sagas/root';
+import Header from './components/Header';
+import CommuteFormContainer from './components/CommuteFormContainer'
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'font-awesome/css/font-awesome.css';
@@ -14,7 +15,10 @@ const store = configureStore();
 store.runSaga(rootSaga);
 const jsx = (
     <Provider store={store}>
-        <AppRouter />
+        <div>
+            <Header />
+            <CommuteFormContainer />
+        </div>
     </Provider>
 );
 

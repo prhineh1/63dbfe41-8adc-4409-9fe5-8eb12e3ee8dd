@@ -61,7 +61,8 @@ export default class CommuteForm extends React.Component {
         year: this.state.commuteDay.year(),
         month: this.state.commuteDay.month(),
         date: this.state.commuteDay.date(),
-        hour: this.state.commuteTime.hour()
+        hour: this.state.commuteTime.hour(),
+        minute: this.state.commuteTime.minute()
       });
       this.props.onSubmit({
         tempLow: parseInt(this.state.tempLow),
@@ -73,24 +74,27 @@ export default class CommuteForm extends React.Component {
   }
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
-        {this.state.error && <p>{this.state.error}</p>}
+      <form className='form' onSubmit={this.onSubmit}>
+        {this.state.error && <p className='form__error'>{this.state.error}</p>}
         <input 
+          className='text-input'
           type='text'
-          placeholder='Low'
+          placeholder='Low (&#8457;)'
           autoFocus
           value={this.state.tempLow}
           onChange={this.onLowChange}
         />
         <input 
+          className='text-input'
           type='text'
-          placeholder='Hi'
+          placeholder='Hi (&#8457;)'
           value={this.state.tempHi}
           onChange={this.onHighChange}
         />
         <input 
+          className='text-input'
           type='text'
-          placeholder='Chance of Rain'
+          placeholder='Chance of Precipitation (%)'
           value={this.state.precipProbabilityCommute}
           onChange={this.onPrecipChange}
         />
@@ -103,6 +107,7 @@ export default class CommuteForm extends React.Component {
           isOutsideRange={this.isOutsideRange} // PropTypes.func
         />
         <Timepicker
+          className='time-picker'
           showSecond={false}
           defaultValue={this.state.commuteTime} // momentPropTypes.momentObj or null
           format={'h:mm a'} // See https://momentjs.com/docs/#/parsing/string-format/
@@ -110,7 +115,7 @@ export default class CommuteForm extends React.Component {
           use12Hours // PropTypes.bool, followed implemenation at http://react-component.github.io/time-picker/examples/12hours.html
         />
         <div>
-          <button>Submit</button>
+          <button className='button'>Submit</button>
         </div>
       </form>
     );

@@ -1,26 +1,18 @@
 import * as Actions from '../../actions/weather';
 import data from '../fixtures/weatherData';
 
-test('should set up addUserDataComplete action object', () => {
-  const action = Actions.addUserDataComplete(data);
+test('should set up addDataComplete action object', () => {
+  const action = Actions.addDataComplete(data[1]);
   expect(action).toEqual({
-    type: 'ADD_USER_DATA_COMPLETE',
-    data
+    type: 'ADD_DATA_COMPLETE',
+    data: data[1]
   });
 });
 
-test('should set up addApiDataComplete action object', () => {
-  const action = Actions.addApiDataComplete(data);
+test('should set up addData action object', () => {
+  const action = Actions.addData(data[0]);
   expect(action).toEqual({
-    type: 'ADD_API_DATA_COMPLETE',
-    data
-  });
-});
-
-test('should set up addUserData action object', () => {
-  const action = Actions.addUserData(data);
-  expect(action).toEqual({
-    type: 'ADD_USER_DATA',
-    data
+    type: 'ADD_DATA',
+    data: data[0]
   });
 });

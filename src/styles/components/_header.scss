@@ -1,18 +1,24 @@
 .header {
-    background: $dark-blue
+    background: $off-white;
 }
 
 .header__content {
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: $s-size 0;
 }
 
-.header__title {
-    color: white;
-    text-decoration: none;
-    h1 {
-        margin: 0;
+.header__content__image {
+    width: 303px;
+    height: 47px;
+    background: url('/images/CrispCommuteLogoMobile.png');
+    background-repeat: no-repeat;
+
+    @media (min-width: $desktop-breakpoint) {
+        width: 510px;
+        height: 77px;
+        background: url('/images/CrispCommuteLogo.png');
+        background-repeat: no-repeat;
     }
 }

@@ -17,8 +17,14 @@ export class CommuteFormContainer extends React.Component {
   }
   render() {
     return (
-      <div>
-        {!!this.props.weather.temperature && 
+      <div className='content-container content-container--body'>
+        <div className='info'>
+          Is it a good day to take the bike to work, or should you take the metro?
+          Let Crisp Commute help you stay fresh and dry on your DC commute. 
+          After Filling out the form below and hitting submit, Crisp
+          Commute will display the forecast for that time and recommend a mode of transportation.
+          </div>
+        {!!this.props.weather.temperature && // Don't render the modal until the data is ready
           <CommuteChoiceModal 
             weather={this.props.weather}
             toggleModal={this.toggleModal}

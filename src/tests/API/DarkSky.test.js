@@ -1,13 +1,13 @@
 import moment from 'moment';
-import axios from 'axios';
-import { getWeather } from '../../API/DarkSky';
+import getWeather from '../../API/DarkSky';
 
 test('should retreive weatherData from DarkSky API', (done) => {
   const weatherData = {
     precipProbability: expect.any(Number),
     summary: expect.any(String),
     temperature: expect.any(Number),
-    icon: expect.any(String)
+    icon: expect.any(String),
+    mode: expect.any(String)
   };
   return getWeather({ commuteDate: moment().unix() })
     .then((result) => {

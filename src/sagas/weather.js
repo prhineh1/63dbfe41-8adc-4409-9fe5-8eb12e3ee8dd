@@ -1,6 +1,5 @@
 import { takeEvery } from 'redux-saga';
 import { put, call } from 'redux-saga/effects';
-import * as Actions from '../actions/weather';
 import { getWeather } from '../API/DarkSky';
 
 // WATCHERS

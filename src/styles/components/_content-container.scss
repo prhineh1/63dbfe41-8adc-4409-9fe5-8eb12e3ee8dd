@@ -3,3 +3,15 @@
     padding: 0 $m-size;
     max-width: 80rem;
 }
+
+.content-container--body {
+    margin: $m-size;
+    background: $lavender; 
+    border-radius: $m-size;    
+
+    @media (min-width: $desktop-breakpoint) {
+        background: $lavender;
+        border-radius: $m-size;
+        margin: $xl-size auto 0 auto;
+    }
+}
