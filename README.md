@@ -22,7 +22,7 @@ This project requires [Node.js](https://nodejs.org/en/) and your preferred packa
 >runs the webpack dev-server with the `inline-source-map` option enabled
 
 `test`
->runs tests with `jest`
+>runs test suite with `jest`
 ### Tooling
 
 #### Testing
