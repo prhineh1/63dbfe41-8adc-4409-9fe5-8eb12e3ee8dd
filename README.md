@@ -48,6 +48,7 @@ Weather forecasts are pulled from the `currently` data point off the Time Machin
 * [Redux-saga](https://redux-saga.js.org/)
 * [Dark Sky API](https://darksky.net/dev)
 * [SASS/SCSS](http://sass-lang.com/)
+* [Axios](https://github.com/axios/axios)
 
 ### Third-party components
 
