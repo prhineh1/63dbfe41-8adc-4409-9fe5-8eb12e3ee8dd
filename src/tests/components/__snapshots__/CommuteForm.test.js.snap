@@ -147,7 +147,7 @@ exports[`should render error for invalid form submission (missing input) 1`] = `
   <p
     className="form__error"
   >
-    Please provide values for the first three fields.
+    Please provide valid values for the first three fields.
   </p>
   <input
     autoFocus={true}
@@ -283,6 +283,150 @@ exports[`should render error for invalid form submission (missing input) 1`] = `
 </form>
 `;
 
+exports[`should render error for invalid form submission (tempLow === "-") 1`] = `
+<form
+  className="form"
+  onSubmit={[Function]}
+>
+  <p
+    className="form__error"
+  >
+    Please provide valid values for the first three fields.
+  </p>
+  <input
+    autoFocus={true}
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Low (℉)"
+    type="text"
+    value="-"
+  />
+  <input
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Hi (℉)"
+    type="text"
+    value="45"
+  />
+  <input
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Chance of Precipitation (%)"
+    type="text"
+    value="25"
+  />
+  <SingleDatePicker
+    anchorDirection="left"
+    customCloseIcon={null}
+    customInputIcon={null}
+    date={"1970-01-01T00:00:00.000Z"}
+    daySize={39}
+    disabled={false}
+    displayFormat={[Function]}
+    enableOutsideDays={false}
+    firstDayOfWeek={null}
+    focused={false}
+    hideKeyboardShortcutsPanel={false}
+    horizontalMargin={0}
+    id="date"
+    initialVisibleMonth={null}
+    isDayBlocked={[Function]}
+    isDayHighlighted={[Function]}
+    isOutsideRange={[Function]}
+    isRTL={false}
+    keepOpenOnDateSelect={false}
+    monthFormat="MMMM YYYY"
+    navNext={null}
+    navPrev={null}
+    numberOfMonths={1}
+    onClose={[Function]}
+    onDateChange={[Function]}
+    onFocusChange={[Function]}
+    onNextMonthClick={[Function]}
+    onPrevMonthClick={[Function]}
+    orientation="horizontal"
+    phrases={
+      Object {
+        "chooseAvailableDate": [Function],
+        "clearDate": "Clear Date",
+        "closeDatePicker": "Close",
+        "dateIsUnavailable": [Function],
+        "enterKey": "Enter key",
+        "escape": "Escape key",
+        "hideKeyboardShortcutsPanel": "Close the shortcuts panel",
+        "homeEnd": "Home and end keys",
+        "jumpToNextMonth": "Move forward to switch to the next month",
+        "jumpToPrevMonth": "Move backward to switch to the previous month",
+        "keyboardNavigationInstructions": "Press the down arrow key to interact with the calendar and
+  select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+        "keyboardShortcuts": "Keyboard Shortcuts",
+        "leftArrowRightArrow": "Right and left arrow keys",
+        "moveFocusByOneDay": "Move backward (left) and forward (right) by one day",
+        "moveFocusByOneMonth": "Switch months",
+        "moveFocusByOneWeek": "Move backward (up) and forward (down) by one week",
+        "moveFocustoStartAndEndOfWeek": "Go to the first or last day of a week",
+        "openThisPanel": "Open this panel",
+        "pageUpPageDown": "page up and page down keys",
+        "questionMark": "Question mark",
+        "returnFocusToInput": "Return to the date input field",
+        "selectFocusedDate": "Select the date in focus",
+        "showKeyboardShortcutsPanel": "Open the keyboard shortcuts panel",
+        "upArrowDownArrow": "up and down arrow keys",
+      }
+    }
+    placeholder="Date"
+    readOnly={false}
+    renderCalendarInfo={null}
+    renderDay={null}
+    renderMonth={null}
+    reopenPickerOnClearDate={false}
+    required={false}
+    screenReaderInputMessage=""
+    showClearDate={false}
+    showDefaultInputIcon={false}
+    withFullScreenPortal={false}
+    withPortal={false}
+  />
+  <Picker
+    addon={[Function]}
+    align={Object {}}
+    allowEmpty={true}
+    className="time-picker"
+    clearText="clear"
+    defaultOpen={false}
+    defaultOpenValue={"1970-01-01T00:00:00.000Z"}
+    defaultValue={"1970-01-01T00:00:00.000Z"}
+    disabledHours={[Function]}
+    disabledMinutes={[Function]}
+    disabledSeconds={[Function]}
+    focusOnOpen={false}
+    format="h:mm a"
+    hideDisabledOptions={false}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onClose={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onOpen={[Function]}
+    placement="bottomLeft"
+    popupClassName=""
+    prefixCls="rc-time-picker"
+    showHour={true}
+    showMinute={true}
+    showSecond={false}
+    style={Object {}}
+    use12Hours={true}
+  />
+  <div>
+    <button
+      className="button"
+    >
+      Submit
+    </button>
+  </div>
+</form>
+`;
+
 exports[`should render error for invalid form submission (tempLow > tempHi) 1`] = `
 <form
   className="form"
@@ -291,7 +435,7 @@ exports[`should render error for invalid form submission (tempLow > tempHi) 1`] 
   <p
     className="form__error"
   >
-    The Hi temperature (second input) must be greater than the low temperature (first input).
+    The Hi temperature (second input) must be greater than the Low temperature (first input).
   </p>
   <input
     autoFocus={true}

@@ -15,19 +15,19 @@ export default class CommuteForm extends React.Component {
   };
   onLowChange = e => {
     const tempLow = e.target.value;
-    if (!tempLow || tempLow.match(/^[1-9][0-9]{0,2}?$/)) { //matches any number between 0 and 1000
+    if (tempLow.match(/(^\-?(?!0)\d{0,3}$)|^0$|^$/)) { // matches any number between -999 and 999 or an empty string
       this.setState(() => ({ tempLow }));
     }
   };
   onHighChange = e => {
     const tempHi = e.target.value;
-    if (!tempHi || tempHi.match(/^[1-9][0-9]{0,2}?$/)) {
+    if (tempHi.match(/(^\-?(?!0)\d{0,3}$)|^0$|^$/)) {
       this.setState(() => ({ tempHi }));
     }
   };
   onPrecipChange = e => {
     const precipProbabilityCommute = e.target.value;
-    if (!precipProbabilityCommute || precipProbabilityCommute.match(/(^[1-9][0-9]?$)|100?$|^0?$/)) { //matches any number between 0 and 100
+    if (precipProbabilityCommute.match(/(^[1-9]\d?$)|100$|^0?$|^$/)) { // matches any number between 0 and 100 or an empty string
       this.setState(() => ({ precipProbabilityCommute }))
     }
   }
@@ -48,10 +48,12 @@ export default class CommuteForm extends React.Component {
   onSubmit = e => {
     e.preventDefault();
 
-    if(!this.state.tempHi || !this.state.tempLow || !this.state.precipProbabilityCommute) {
-      this.setState(() => ({ error: 'Please provide values for the first three fields.' }))
-    } else if (parseInt(this.state.tempLow) > parseInt(this.state.tempHi)) {
-      this.setState(() => ({ error: "The Hi temperature (second input) must be greater than the low temperature (first input)." }))
+    if (this.state.tempHi.match(/^\-$|^$/) || // matches empty strings and '-'
+       this.state.tempLow.match(/^\-$|^$/) ||
+      !this.state.precipProbabilityCommute) {
+      this.setState(() => ({ error: 'Please provide valid values for the first three fields.' }))
+    } else if (parseInt(this.state.tempLow) >= parseInt(this.state.tempHi)) {
+      this.setState(() => ({ error: "The Hi temperature (second input) must be greater than the Low temperature (first input)." }))
     } else {
       this.setState(() => ({ error: '' }));
 

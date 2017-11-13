@@ -52,7 +52,7 @@ test('should set calendar focus on change', () => {
 
 test('should set new date on time change', () => {
   const time = moment();
-  wrapper.find('Picker').prop('onChange')(time); // Timepicker component is Rendered as 'Picker' (see snapshot) 
+  wrapper.find('Picker').prop('onChange')(time); // Timepicker component is Rendered as 'Picker' (see snapshot)
   expect(wrapper.state('commuteTime')).toEqual(time);
 });
 
@@ -80,6 +80,20 @@ test('should render error for invalid form submission (tempLow > tempHi)', () =>
   const state = {
     tempHi: '45',
     tempLow: '89',
+    precipProbabilityCommute: '25'
+  };
+  wrapper.setState(state);
+  wrapper.find('form').simulate('submit', {
+    preventDefault: () => { }
+  });
+  expect(wrapper.state('error').length).toBeGreaterThan(0);
+  expect(wrapper).toMatchSnapshot();
+});
+
+test('should render error for invalid form submission (tempLow === "-")', () => {
+  const state = {
+    tempHi: '45',
+    tempLow: '-',
     precipProbabilityCommute: '25'
   };
   wrapper.setState(state);
