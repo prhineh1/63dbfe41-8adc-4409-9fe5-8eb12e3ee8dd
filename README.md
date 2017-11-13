@@ -53,3 +53,4 @@ Weather forecasts are pulled from the `currently` data point off the Time Machin
 * [react-modal](https://github.com/reactjs/react-modal)
 * [react-dates](https://github.com/airbnb/react-dates)
 * [TimePicker](https://github.com/react-component/time-picker)
+* [React Animated Weather](https://github.com/divyanshu013/react-animated-weather)
