@@ -6,6 +6,7 @@ Crispy Commute takes input from the user regarding desired commute conditions in
 This project requires [Node.js](https://nodejs.org/en/) and your preferred package manager ([yarn](https://yarnpkg.com/en/) or [npm](https://www.npmjs.com/))
 
 1. Install dependencies: `npm install` or `yarn`.
+2. use npm or yarn  to build the project with `build:prod` and launch a local server with `start`.
 
 ### Scripts
 
