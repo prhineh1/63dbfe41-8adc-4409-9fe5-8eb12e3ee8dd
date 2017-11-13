@@ -31,7 +31,7 @@ const CommuteChoiceModal = (props) => {
         <span className='model__forecast__text'>{props.weather.summary ? props.weather.summary : 'Not Available'}</span>  
         <span className='model__forecast__text'>{props.weather.temperature ? props.weather.temperature : 'Not Available'} &#8457;</span>
         <span className='model__forecast__text'>
-          Chance of precipitation: {typeof props.weather.precipProbability === 'number' ? `${props.weather.precipProbability * 100}%` : 'Not Available'}
+          Chance of precipitation: {!isNaN(props.weather.precipProbability) ? `${props.weather.precipProbability * 100}%` : 'Not Available'}
         </span>
         <button className='button button--modal' onClick={props.toggleModal}>Ok</button>
       </div>
