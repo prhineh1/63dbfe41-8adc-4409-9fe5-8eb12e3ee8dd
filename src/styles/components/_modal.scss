@@ -1,4 +1,5 @@
-.ReactModalPortal > div {
+
+.ReactModalPortal > div { /* div will get ReactModal__Overlay class on open */
   opacity: 0;
 }
 
@@ -13,7 +14,7 @@
   opacity: 1;
 }
 
-.ReactModalPortal .ReactModal__Overlay--before-close {
+.ReactModalPortal .ReactModal__Overlay--before-close { /* before-close modifier is not being added */
   opacity: 0;
 }
 

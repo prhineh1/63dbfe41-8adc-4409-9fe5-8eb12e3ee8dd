@@ -6,12 +6,13 @@ export const getWeather = ({ commuteDate, tempHi, tempLow, precipProbabilityComm
   return axios.get(url)
     .then((weather) => {
       // 'mode' is the flag that determines whether you ride a bike or the metro
+      // if precipProbability is NaN, its condition is set to true
       const mode = (
         weather.data.currently.temperature <= tempHi &&
         weather.data.currently.temperature >= tempLow &&
-        weather.data.currently.precipProbability < precipProbabilityCommute ? 'bike' : 'metro'
+        (typeof weather.data.currently.precipProbability === 'number' ?
+        weather.data.currently.precipProbability < precipProbabilityCommute : true) ? 'bike' : 'metro'
       );
-
       const response = {
         temperature: weather.data.currently.temperature,
         summary: weather.data.currently.summary,
@@ -21,7 +22,7 @@ export const getWeather = ({ commuteDate, tempHi, tempLow, precipProbabilityComm
       };
       return ({ response });
     })
-    .catch(error => ({ error }));
+    .catch(error => ({ error: error.response }));
 };
 
 export default getWeather;

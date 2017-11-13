@@ -19,7 +19,7 @@ test('should retreive weatherData from DarkSky API', (done) => {
 test('should fail to retreive weatherData from DarkSky API', (done) => {
   return getWeather({ commuteDate: 'abc' })
     .then((result) => {
-      expect(result.error).toEqual(expect.any(Object));
+      expect(result).toEqual(expect.any(Object));
       done();
     });
 });

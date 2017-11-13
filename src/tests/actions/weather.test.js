@@ -9,6 +9,13 @@ test('should set up addDataComplete action object', () => {
   });
 });
 
+test('should set up clearData action object', () => {
+  const action = Actions.clearData();
+  expect(action).toEqual({
+    type: 'CLEAR_DATA',
+  });
+});
+
 test('should set up addData action object', () => {
   const action = Actions.addData(data[0]);
   expect(action).toEqual({

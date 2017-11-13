@@ -10,6 +10,7 @@ describe('testing addDataAsync saga for successfull Api call', () => {
   const response = {};
   const actionObject = addData(data[0]);
   const iterator = addDataAsync(actionObject);
+
   test('should return value from the first iteration', () => {
     const next = iterator.next().value;
     expect(next).toEqual(call(getWeather, data[0]));
@@ -31,13 +32,17 @@ describe('testing addDataAsync saga for failed Api call', () => {
   const error = {};
   const actionObject = addData(data[0]);
   const iterator = addDataAsync(actionObject);
+
   test('should return value from the first iteration', () => {
     const next = iterator.next().value;
     expect(next).toEqual(call(getWeather, data[0]));
   });
   test('should return value from the second iteration', () => {
     const nextFailure = iterator.next({ undefined, error }).value;
-    expect(nextFailure).toEqual(call(console.log, error));
+    expect(nextFailure).toEqual(put({
+      type: 'DARK_SKY_ERROR',
+      error
+    }));
   });
   test('Saga should be finished', () => {
     const next = iterator.next();

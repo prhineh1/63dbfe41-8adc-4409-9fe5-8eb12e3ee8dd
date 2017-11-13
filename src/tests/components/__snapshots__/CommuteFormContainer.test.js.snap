@@ -7,7 +7,7 @@ exports[`should render CommuteFormContainer 1`] = `
   <div
     className="info"
   >
-    Is it a good day to take the bike to work, or should you take the metro? Let Crisp Commute help you stay fresh and dry on your DC commute. After Filling out the form below and hitting submit, Crisp Commute will display the forecast for that time and recommend a mode of transportation.
+    Is it a good day to take the bike to work, or should you take the metro? Let Crisp Commute help you stay fresh and dry on your DC commute. Enter information regarding accpetable whether conditions and the time and date of your commute. After hitting submit, Crisp Commute will display the forecast for that time and recommend either a bike or the metro.
   </div>
   <CommuteChoiceModal
     isOpen={false}
@@ -25,6 +25,44 @@ exports[`should render CommuteFormContainer 1`] = `
   <CommuteForm
     onSubmit={[Function]}
   />
+   
+</div>
+`;
+
+exports[`should render CommuteFormContainer with error 1`] = `
+<div
+  className="content-container content-container--body"
+>
+  <div
+    className="info"
+  >
+    Is it a good day to take the bike to work, or should you take the metro? Let Crisp Commute help you stay fresh and dry on your DC commute. Enter information regarding accpetable whether conditions and the time and date of your commute. After hitting submit, Crisp Commute will display the forecast for that time and recommend either a bike or the metro.
+  </div>
+  <CommuteChoiceModal
+    isOpen={false}
+    toggleModal={[Function]}
+    weather={
+      Object {
+        "icon": "CLEAR_DAY",
+        "mode": "bike",
+        "precipProbability": 0,
+        "summary": "clear skies",
+        "temperature": 45,
+      }
+    }
+  />
+  <CommuteForm
+    onSubmit={[Function]}
+  />
+  <h3
+    className="error"
+  >
+    404
+    : 
+    not found
+    . Try Again.
+  </h3>
+   
 </div>
 `;
 
@@ -35,10 +73,20 @@ exports[`should render CommuteFormContainer without modal 1`] = `
   <div
     className="info"
   >
-    Is it a good day to take the bike to work, or should you take the metro? Let Crisp Commute help you stay fresh and dry on your DC commute. After Filling out the form below and hitting submit, Crisp Commute will display the forecast for that time and recommend a mode of transportation.
+    Is it a good day to take the bike to work, or should you take the metro? Let Crisp Commute help you stay fresh and dry on your DC commute. Enter information regarding accpetable whether conditions and the time and date of your commute. After hitting submit, Crisp Commute will display the forecast for that time and recommend either a bike or the metro.
   </div>
+  <CommuteChoiceModal
+    isOpen={false}
+    toggleModal={[Function]}
+    weather={
+      Object {
+        "temperature": "",
+      }
+    }
+  />
   <CommuteForm
     onSubmit={[Function]}
   />
+   
 </div>
 `;

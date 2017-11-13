@@ -6,9 +6,12 @@ export const addDataComplete = (data) => ({
   data
 });
 
-// actions for triggering corresponding Saga
+export const clearData = () => ({ type: 'CLEAR_DATA' });
+
+// actions for triggering a Saga
 
 export const addData = (data) => ({
   type: 'ADD_DATA',
   data
 });
+

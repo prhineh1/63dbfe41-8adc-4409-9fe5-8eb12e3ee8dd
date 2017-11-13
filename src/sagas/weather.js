@@ -18,6 +18,9 @@ export function* addDataAsync({ data }) {
       data: { ...data, ...response }
     });
   } else {
-    yield call(console.log, error);
+    yield put({
+      type: 'DARK_SKY_ERROR',
+      error
+    });
   }
 }

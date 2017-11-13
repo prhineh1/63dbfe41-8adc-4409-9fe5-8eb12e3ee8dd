@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CommuteForm from './CommuteForm';
-import { addData } from '../actions/weather';
+import { addData, clearData } from '../actions/weather';
+import { clearError } from '../actions/error';
 import CommuteChoiceModal from './CommuteChoiceModal';
 
 export class CommuteFormContainer extends React.Component {
@@ -14,6 +15,12 @@ export class CommuteFormContainer extends React.Component {
   }
   toggleModal = () => {
     this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
+    this.props.clearData();
+  }
+  clearError = () => {
+    if (!!this.props.error) { // only dispatch the action if there is an error
+      this.props.clearError();      
+    }
   }
   render() {
     return (
@@ -21,10 +28,11 @@ export class CommuteFormContainer extends React.Component {
         <div className='info'>
           Is it a good day to take the bike to work, or should you take the metro?
           Let Crisp Commute help you stay fresh and dry on your DC commute. 
-          After Filling out the form below and hitting submit, Crisp
-          Commute will display the forecast for that time and recommend a mode of transportation.
+          Enter information regarding accpetable whether conditions and
+          the time and date of your commute. After hitting submit, Crisp
+          Commute will display the forecast for that time and recommend either a bike or the metro.
           </div>
-        {!!this.props.weather.temperature && // Don't render the modal until the data is ready
+        {!!this.props.weather && // Don't render the modal until data is ready
           <CommuteChoiceModal 
             weather={this.props.weather}
             toggleModal={this.toggleModal}
@@ -32,19 +40,24 @@ export class CommuteFormContainer extends React.Component {
           />
         }
         <CommuteForm onSubmit={this.onSubmit} />
+        {this.props.error && 
+          <h3 className='error'>{this.props.error.status}: {this.props.error.statusText}. Try Again.</h3>
+        }
+        {this.props.weather && this.clearError()} {/* clear error once valid data is received */}
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    weather: state.weather
-  };
-};
+const mapStateToProps = (state) => ({
+    weather: state.weather,
+    error: state.error
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  addData: (userData) => dispatch(addData(userData))
+  addData: (userData) => dispatch(addData(userData)),
+  clearData: () => dispatch(clearData()),
+  clearError: () => dispatch(clearError())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommuteFormContainer);

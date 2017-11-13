@@ -19,7 +19,7 @@ exports[`should render modal with bike commute 1`] = `
   <h2
     className="modal__message"
   >
-    You're all clear; bike it.
+    Crisp conditions; bike it.
   </h2>
   <div
     className="modal__weather-icon"
@@ -59,8 +59,7 @@ exports[`should render modal with bike commute 1`] = `
       className="model__forecast__text"
     >
       Chance of precipitation: 
-      0
-      %
+      0%
     </span>
     <button
       className="button button--modal"
@@ -91,7 +90,7 @@ exports[`should render modal with metro commute 1`] = `
   <h2
     className="modal__message"
   >
-    You're all clear; bike it.
+    Crisp conditions; bike it.
   </h2>
   <div
     className="modal__weather-icon"
@@ -131,8 +130,7 @@ exports[`should render modal with metro commute 1`] = `
       className="model__forecast__text"
     >
       Chance of precipitation: 
-      0
-      %
+      0%
     </span>
     <button
       className="button button--modal"
