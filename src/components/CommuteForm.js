@@ -57,8 +57,8 @@ export default class CommuteForm extends React.Component {
     } else {
       this.setState(() => ({ error: '' }));
 
-      // create a momentObj combining the year, month and date of commuteDay
-      // with the hour from commuteTime to get the appropriate commuteDate
+      // create a momentObj combining the year, month and date of commuteDay (value from SingleDatePicker)
+      // with the hour (value from TimePicker) from commuteTime to get the appropriate commuteDate
       const commuteDate = moment({  
         year: this.state.commuteDay.year(),
         month: this.state.commuteDay.month(),
