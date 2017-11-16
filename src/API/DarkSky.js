@@ -10,8 +10,8 @@ export const getWeather = ({ commuteDate, tempHi, tempLow, precipProbabilityComm
       const mode = (
         weather.data.currently.temperature <= tempHi &&
         weather.data.currently.temperature >= tempLow &&
-        (typeof weather.data.currently.precipProbability === 'number' ?
-        weather.data.currently.precipProbability < precipProbabilityCommute : true) ? 'bike' : 'metro'
+        (isNaN(weather.data.currently.precipProbability) ?
+         true : weather.data.currently.precipProbability < precipProbabilityCommute) ? 'bike' : 'metro'
       );
       const response = {
         temperature: weather.data.currently.temperature,
